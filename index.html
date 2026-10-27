@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevControl // Full-Stack Engineering Portfolio</title>
+    <!-- Tailwind CSS for utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#050811',
+                        darkCard: '#111827',
+                        terminalBg: '#0a0e17',
+                        cyanGlow: '#00f2fe',
+                        emeraldGlow: '#10b981',
+                        accentBlue: '#3b82f6',
+                        codeBg: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #050811;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
+                linear-gradient(rgba(15, 23, 42, 0.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.4) 1px, transparent 1px);
+            background-size: 100% 100%, 32px 32px, 32px 32px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 20px -5px rgba(0, 242, 254, 0.3);
+        }
+
+        .border-glow:hover {
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20 selection:bg-cyan-500 selection:text-black">
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-darkBg/80 backdrop-blur-md border-b border-slate-800 px-4 lg:px-12 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+            <span class="font-mono text-sm tracking-wider font-semibold text-cyan-400">DEV_CONTROL // v2.6.0</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+            <a href="#terminal" class="hover:text-cyan-400 transition-colors"><i class="fa-solid me-1.5 fa-terminal text-cyan-400"></i> CLI Workspace</a>
+            <a href="#projects" class="hover:text-cyan-400 transition-colors"><i class="fa-solid me-1.5 fa-folder-open text-emerald-400"></i> Projects (2)</a>
+            <a href="#architecture" class="hover:text-cyan-400 transition-colors"><i class="fa-solid me-1.5 fa-network-wired text-blue-400"></i> Architecture</a>
+        </div>
+        <div class="flex items-center space-x-3">
+            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 me-2 animate-ping"></span> SYSTEM_ONLINE
+            </span>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-16">
+
+        <!-- HERO SECTION: Title & Interactive CLI Terminal -->
+        <section id="terminal" class="space-y-6">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                    Full-Stack Software Engineer & <br/>
+                    <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
+                        Backend Systems Architect
+                    </span>
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Building resilient RESTful APIs, high-throughput database layers, and formal theory integrations.
+                </p>
+            </div>
+
+            <!-- Terminal Widget -->
+            <div class="max-w-4xl mx-auto bg-terminalBg rounded-xl border border-slate-800 glow-cyan overflow-hidden shadow-2xl">
+                <div class="bg-slate-900/90 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                        <span class="text-xs font-mono text-slate-400 ms-2">bash - dev@control-room:~</span>
+                    </div>
+                    <div class="text-xs font-mono text-slate-500 hidden sm:block">Type <span class="text-cyan-400">help</span> for commands</div>
+                </div>
+
+                <div id="terminal-body" class="p-4 sm:p-6 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-3 text-slate-300">
+                    <div>
+                        <span class="text-emerald-400">visitor@dev-control</span>:<span class="text-blue-400">~</span>$ status
+                        <div class="text-slate-400 mt-1">
+                            [OK] Node.js & Express servers active on ports 5050 & 8000<br/>
+                            [OK] MySQL connection pools established for droid_cafe_db<br/>
+                            [OK] 2 production-grade full-stack systems loaded successfully.
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-emerald-400">visitor@dev-control</span>:<span class="text-blue-400">~</span>$ help
+                        <div class="text-slate-400 mt-1 pl-2 border-l-2 border-cyan-500/40">
+                            Available Commands:<br/>
+                            &bull; <span class="text-cyan-300">projects</span> - Display core full-stack projects<br/>
+                            &bull; <span class="text-cyan-300">skills</span>   - List technical stack & database expertise<br/>
+                            &bull; <span class="text-cyan-300">clear</span>    - Clear terminal buffer
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Field -->
+                <div class="bg-slate-950/80 px-4 py-3 border-t border-slate-800/80 flex items-center space-x-2 font-mono text-xs sm:text-sm">
+                    <span class="text-emerald-400 font-bold">dev-control$&nbsp;</span>
+                    <input type="text" id="terminal-input" 
+                        class="bg-transparent border-none outline-none text-cyan-300 flex-1 placeholder-slate-600 focus:ring-0" 
+                        placeholder="Type 'projects' or 'skills' and hit enter..." autocomplete="off"/>
+                    <button id="terminal-send" onclick="handleCommand()" class="text-xs px-3 py-1 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded transition-colors">
+                        Run
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION (SHOWCASING BOTH PROJECTS) -->
+        <section id="projects" class="space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-mono text-cyan-400 tracking-wider uppercase font-semibold">// Portfolio Showcase</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Featured Production Projects</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- PROJECT 1: ByteCafe & Grill -->
+                <div class="bg-darkCard rounded-xl border border-slate-800 p-6 space-y-4 border-glow flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Project 01 // E-Commerce & CS Theory</span>
+                            <span class="text-xs font-mono text-slate-500">Port 8000</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">ByteCafe & Grill Ordering Platform</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A production-grade full-stack ordering portal combining a 2-step checkout wizard with a **Context-Free Grammar (CFG) validation engine** for custom recipe modifiers (`ADD:espresso; REMOVE:dairy;`), MySQL connection pooling, and multi-channel notification dispatch.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Node.js / Express</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">MySQL / phpMyAdmin</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Tailwind CSS</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Formal Theory (CFG)</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span><i class="fa-solid fa-check text-emerald-400 me-1"></i> Notification Gateway Active</span>
+                        <span class="text-cyan-400">MySQL: droid_cafe_db</span>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2: Full-Stack Range Query Engine -->
+                <div class="bg-darkCard rounded-xl border border-slate-800 p-6 space-y-4 border-glow flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded border border-blue-500/20">Project 02 // Database Architecture</span>
+                            <span class="text-xs font-mono text-slate-500">Port 5050</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Full-Stack User Engine & Range Query Platform</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A high-performance data processing application featuring dynamic multi-variable search, secure parameterized SQL queries (`BETWEEN ? AND ?`) to prevent SQL injection, singleton connection pools, and asynchronous state synchronization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Node.js</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Express REST API</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">MySQL Parameterization</span>
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-slate-900 text-cyan-300 border border-slate-800">Singleton Pattern</span>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+                        <span><i class="fa-solid fa-shield-halved text-emerald-400 me-1"></i> Injection-Proof</span>
+                        <span class="text-cyan-400">REST API / JSON</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VISUAL ARCHITECTURE DIAGRAM SECTION -->
+        <section id="architecture" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4">
+                <div>
+                    <span class="text-xs font-mono text-cyan-400 tracking-wider uppercase font-semibold">// Live System Schematic</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Full-Stack Data Flow Architecture</h2>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 md:mt-0">
+                    Interactive mapping from frontend DOM events to Node.js services and MySQL storage.
+                </p>
+            </div>
+
+            <div class="bg-darkCard p-6 sm:p-8 rounded-xl border border-slate-800 relative overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                    
+                    <!-- Node 1: Client UI -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded border border-blue-500/20">Client Layer</span>
+                            <i class="fa-brands fa-html5 text-xl text-orange-500"></i>
+                        </div>
+                        <h3 class="font-semibold text-white text-base">Tailwind & ES6 Wizards</h3>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Manages multi-step wizards, asynchronous <code class="text-cyan-300">fetch()</code> payloads, and immediate client-side validation states.
+                        </p>
+                    </div>
+
+                    <!-- Node 2: Express Backend & CFG -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-800 relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded border border-cyan-500/20">API & Theory</span>
+                            <i class="fa-brands fa-node-js text-xl text-emerald-500"></i>
+                        </div>
+                        <h3 class="font-semibold text-white text-base">Express + CFG Parser</h3>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Validates grammar production rules (`ADD`/`REMOVE`) and handles SMS/Email notification dispatch routing.
+                        </p>
+                    </div>
+
+                    <!-- Node 3: Database Layer -->
+                    <div class="bg-slate-900 p-5 rounded-lg border border-slate-800">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">Persistence</span>
+                            <i class="fa-solid fa-database text-xl text-cyan-400"></i>
+                        </div>
+                        <h3 class="font-semibold text-white text-base">MySQL Connection Pool</h3>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Executes parameterized SQL statements, maintaining ACID compliance and secure persistence across tables.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JavaScript Logic for CLI Terminal -->
+    <script>
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalBody = document.getElementById('terminal-body');
+
+        function appendTerminalOutput(cmd, outputHtml) {
+            const cmdLine = document.createElement('div');
+            cmdLine.innerHTML = `<span class="text-emerald-400">visitor@dev-control</span>:<span class="text-blue-400">~</span>$ ${cmd}`;
+            terminalBody.appendChild(cmdLine);
+
+            if (outputHtml) {
+                const outLine = document.createElement('div');
+                outLine.className = 'text-slate-400 mt-1 pl-2 border-l-2 border-cyan-500/40 mb-2';
+                outLine.innerHTML = outputHtml;
+                terminalBody.appendChild(outLine);
+            }
+
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        function handleCommand() {
+            const cmd = terminalInput.value.trim().toLowerCase();
+            terminalInput.value = '';
+
+            if (!cmd) return;
+
+            if (cmd === 'help') {
+                appendTerminalOutput('help', `Available Commands:<br/>&bull; <span class="text-cyan-300">projects</span> - Display core full-stack projects<br/>&bull; <span class="text-cyan-300">skills</span>   - List technical stack & database expertise<br/>&bull; <span class="text-cyan-300">clear</span>    - Clear terminal buffer`);
+            } else if (cmd === 'projects') {
+                appendTerminalOutput('projects', `1. ByteCafe & Grill (E-commerce + CFG Validation Engine)<br/>2. Full-Stack User Engine & Range Query Platform`);
+            } else if (cmd === 'skills') {
+                appendTerminalOutput('skills', `Languages & Frameworks: Node.js, Express.js, JavaScript (ES6+), HTML5, Tailwind CSS<br/>Databases: MySQL, phpMyAdmin, Connection Pools, Parameterized SQL<br/>Theory: Context-Free Grammars (CFG), State Machines`);
+            } else if (cmd === 'clear') {
+                terminalBody.innerHTML = '';
+            } else {
+                appendTerminalOutput(cmd, `Command not recognized: ${cmd}. Type 'help' for options.`);
+            }
+        }
+
+        terminalInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleCommand();
+        });
+    </script>
+</body>
+</html>
